@@ -590,8 +590,8 @@ BeachGirlSpriteGFX:: INCBIN "gfx/sprites/beach_girl.2bpp.lzp"
 SECTION "PiersSpriteGFX", ROMX
 PiersSpriteGFX:: INCBIN "gfx/sprites/piers.2bpp.lzp"
 
-SECTION "KatySpriteGFX", ROMX
-KatySpriteGFX:: INCBIN "gfx/sprites/katy.2bpp.lzp"
+SECTION "LarrySpriteGFX", ROMX
+LarrySpriteGFX:: INCBIN "gfx/sprites/larry.2bpp.lzp"
 
 SECTION "AlolanExeggutorSpriteGFX", ROMX
 AlolanExeggutorSpriteGFX:: INCBIN "gfx/sprites/alolan_exeggutor.2bpp.lzp"
@@ -619,3 +619,21 @@ BigHoOhSpriteGFX:: INCBIN "gfx/sprites/big_ho_oh.2bpp.lzp"
 
 SECTION "BigLugiaSpriteGFX", ROMX
 BigLugiaSpriteGFX:: INCBIN "gfx/sprites/big_lugia.2bpp.lzp"
+
+SECTION "BetaSpriteGFX", ROMX
+BetaSpriteGFX:: INCBIN "gfx/sprites/beta.2bpp.lzp"
+
+SECTION "BetaBikeSpriteGFX", ROMX
+BetaBikeSpriteGFX:: INCBIN "gfx/sprites/beta_bike.2bpp.lzp"
+
+SECTION "BetaSurfSpriteGFX", ROMX
+BetaSurfSpriteGFX:: INCBIN "gfx/sprites/beta_surf.2bpp.lzp"
+
+SECTION "BetaRunSpriteGFX", ROMX
+BetaRunSpriteGFX:: INCBIN "gfx/sprites/beta_run.2bpp.lzp"
+
+SECTION "FloatingBallSpriteGFX", ROMX
+FloatingBallSpriteGFX:: INCBIN "gfx/sprites/floating_ball.2bpp.lzp"
+
+SECTION "SpinarakCartSpriteGFX", ROMX
+SpinarakCartSpriteGFX:: INCBIN "gfx/sprites/spinarak_cart.2bpp.lzp"

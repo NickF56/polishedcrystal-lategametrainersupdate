@@ -21,6 +21,8 @@ DEF JOYPAD_DISABLE_SGB_TRANSFER_F EQU 7
 ; wOptions3::
 	const_def
 	const QWERTY_KEYBOARD_F  ; 0
+	const NICKNAMES_ALWAYS   ; 1
+	const NICKNAMES_NEVER    ; 2
 
 ; wOptions1::
 	const_def 3
@@ -75,6 +77,7 @@ DEF NUM_FRAMES EQU const_value
 	const NO_LINE_SPACING_F  ; 2
 	const USE_BG_MAP_WIDTH_F ; 3
 	const NEWLINE_ENEMY_F    ; 4
+	const NO_TEXT_PAUSE_F    ; 5
 
 ; wOptions2::
 	const_def 3
@@ -123,6 +126,12 @@ DEF LINK_OPTMASK EQU (1 << NATURES_OPT) | (1 << ABILITIES_OPT) | (1 << PERFECT_I
 	const EVS_OPT_CLASSIC  ; %01
 	const EVS_OPT_MODERN   ; %10
 DEF EV_OPTMASK EQU %11
+
+; wOptionsMenuDescriptionState::
+	const_def
+	const OPTDESCSTATE_PAGE   ; 0 (stopped at '<PARA>')
+	const OPTDESCSTATE_SCROLL ; 1 (stopped at '<CONT>')
+	const OPTDESCSTATE_DONE   ; 2 (stopped at '<PROMPT>')
 
 ; wForgettingMove::
 	const_def 6
@@ -200,6 +209,7 @@ DEF PLAYERSPRITESETUP_RESET_ACTION_F    EQU 7
 	const PLAYER_MALE   ; 0
 	const PLAYER_FEMALE ; 1
 	const PLAYER_ENBY   ; 2
+	const PLAYER_BETA   ; 3
 DEF NUM_PLAYER_GENDERS EQU const_value
 
 ; wMapStatus::

@@ -32,9 +32,9 @@ YellowForest_MapScriptHeader:
 
 	def_object_events
 	object_event  7, 24, SPRITE_WALKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 1, YellowForestWalkerScript, EVENT_YELLOW_FOREST_WALKER
-	pokemon_event  8, 24, SKARMORY, SPRITEMOVEDATA_POKEMON, -1, PAL_NPC_GRAY, ClearText, EVENT_YELLOW_FOREST_SKARMORY
+	pokemon_event  8, 24, SKARMORY, SPRITEMOVEDATA_POKEMON, -1, PAL_MON_GRAY, ClearText, EVENT_YELLOW_FOREST_SKARMORY
 	object_event 47,  6, SPRITE_YELLOW, SPRITEMOVEDATA_WANDER, 1, 2, -1, 0, OBJECTTYPE_SCRIPT, 0, YellowForestYellowScript, -1
-	object_event 49, 26, SPRITE_BALL_CUT_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, PAL_NPC_DECO_ITEM, OBJECTTYPE_SCRIPT, 0, YellowForestSurfPikachuDoll, EVENT_DECO_SURFING_PIKACHU_DOLL
+	object_event 49, 26, SPRITE_BALL_CUT_TREE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, PAL_NPC_ENV_BLUE, OBJECTTYPE_SCRIPT, 0, YellowForestSurfPikachuDoll, EVENT_DECO_SURFING_PIKACHU_DOLL
 	object_event 31,  8, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 0, 1, -1, 0, OBJECTTYPE_COMMAND, jumptextfaceplayer, YellowForestSuperNerdText, -1
 	object_event 19, 41, SPRITE_SCHOOLGIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerSchoolgirlSarah, -1
 	object_event 13, 34, SPRITE_SCHOOLGIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, 0, OBJECTTYPE_GENERICTRAINER, 2, GenericTrainerSchoolgirlIsabel, -1
@@ -234,14 +234,27 @@ YellowForestTutorSeedBombScript:
 	special Special_MoveTutor
 	ifequalfwd $0, .TeachMove
 .TutorRefused
-	jumpopenedtext Text_YellowForestTutorRefused
+	jumpthisopenedtext
+
+	text "Talk to me if you"
+	line "change your mind!"
+	done
 
 .NoSilverLeaf
-	jumpopenedtext Text_YellowForestTutorNoSilverLeaf
+	jumpthisopenedtext
+
+	text "Aw, you don't have"
+	line "a Silver Leaf."
+	done
 
 .TeachMove
 	takeitem SILVER_LEAF
-	jumpopenedtext Text_YellowForestTutorTaught
+	jumpthisopenedtext
+
+	text "Now your #mon"
+	line "knows how to use"
+	cont "Seed Bomb!"
+	done
 
 YellowForestSurfPikachuDoll:
 	disappear YELLOWFOREST_POKE_BALL5
@@ -251,7 +264,11 @@ YellowForestSurfPikachuDoll:
 	playsound SFX_ITEM
 	pause 60
 	waitbutton
-	jumpopenedtext YellowForestSurfPikachuDollSentText
+	jumpthisopenedtext
+
+	text "Surf Pikachu Doll"
+	line "was sent home."
+	done
 
 SchoolgirlSarahSeenText:
 	text "Ooh, a trainer!"
@@ -461,10 +478,6 @@ Text_YellowForestTutorSeedBomb:
 	line "for a Silver Leaf."
 	done
 
-Text_YellowForestTutorNoSilverLeaf:
-	text "Aw, you don't have"
-	line "a Silver Leaf."
-	done
 
 Text_YellowForestTutorQuestion:
 	text "Should I teach"
@@ -472,16 +485,7 @@ Text_YellowForestTutorQuestion:
 	cont "Seed Bomb?"
 	done
 
-Text_YellowForestTutorRefused:
-	text "Talk to me if you"
-	line "change your mind!"
-	done
 
-Text_YellowForestTutorTaught:
-	text "Now your #mon"
-	line "knows how to use"
-	cont "Seed Bomb!"
-	done
 
 YellowForestSuperNerdText:
 	text "There's a protein"
@@ -500,7 +504,3 @@ YellowForestSurfPikachuDollText:
 	line "Surf Pikachu Doll."
 	done
 
-YellowForestSurfPikachuDollSentText:
-	text "Surf Pikachu Doll"
-	line "was sent home."
-	done

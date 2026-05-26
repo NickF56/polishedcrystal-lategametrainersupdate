@@ -278,6 +278,7 @@ RunScriptCommand:
 	dw Script_loadtrainerwithpal         ; db
 	dw Script_nooryes                    ; dc
 	dw Script_digmod                     ; dd
+	dw Script_toggleevent                ; de
 	assert_table_length NUM_EVENT_COMMANDS
 
 GetScriptWordDE::
@@ -1034,7 +1035,7 @@ ApplyObjectFacing::
 	hlcoord 0, 0
 	ld bc, SCREEN_AREA
 .loop
-	res 7, [hl]
+	res B_BG_PRIO, [hl]
 	inc hl
 	dec bc
 	ld a, b
@@ -1224,7 +1225,7 @@ Script_loadtrainer:
 	ld [wOtherTrainerClass], a
 	call GetScriptByte
 	ld [wOtherTrainerID], a
-	xor a
+	xor a ; TRAINERPAL_NONE
 	ld [wTrainerPal], a
 	ret
 
@@ -1241,7 +1242,7 @@ Script_loadtrainerwithpal:
 
 Script_startbattle:
 	call BufferScreen
-	predef StartBattle
+	farcall StartBattle
 	ld a, [wBattleResult]
 	and ~BATTLERESULT_BITMASK
 	ldh [hScriptVar], a
@@ -2137,6 +2138,25 @@ Script_checkevent:
 	ldh [hScriptVar], a
 	ret
 
+Script_toggleevent:
+	call GetScriptWordDE
+	ld b, CHECK_FLAG
+	push de
+	call EventFlagAction
+	pop de
+	jr z, .false
+	ld b, RESET_FLAG
+	call EventFlagAction
+	xor a
+	jr .done
+.false
+	ld b, SET_FLAG
+	call EventFlagAction
+	ld a, TRUE
+.done
+	ldh [hScriptVar], a
+	ret
+
 Script_setflag:
 	call GetScriptWordDE
 	ld b, SET_FLAG
@@ -2474,7 +2494,7 @@ Script_verbosegivetmhm:
 	; off by one error?
 	ld hl, wTempTMHM
 	inc [hl]
-	predef GetTMHMMove
+	farcall GetTMHMMove
 	ld b, BANK(GiveTMHMScript)
 	ld de, GiveTMHMScript
 	jmp ScriptCall
@@ -2514,7 +2534,7 @@ Script_gettmhmname:
 	inc a
 	ld [wTempTMHM], a
 
-	predef GetTMHMMove
+	farcall GetTMHMMove
 	ld a, [wTempTMHM]
 	ld [wPutativeTMHMMove], a
 	call GetMoveName

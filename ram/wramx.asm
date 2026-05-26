@@ -282,7 +282,6 @@ wBattleKeyItemsPocketScrollPosition:: db
 
 wTMHMMoveNameBackup:: ds MOVE_NAME_LENGTH
 
-UNION
 wStringBuffer1:: ds STRING_BUFFER_LENGTH + 5
 wStringBuffer2:: ds STRING_BUFFER_LENGTH
 wStringBuffer3:: ds STRING_BUFFER_LENGTH
@@ -317,7 +316,6 @@ wTempPocketCursor:: ds NUM_POCKETS
 NEXTU
 wCandyMaxLevelExp:: ds 3
 wCandyPrevLevel:: db
-ENDU
 ENDU
 
 wBattleMenuCursorBuffer:: dw
@@ -510,10 +508,12 @@ wDexPrevCursorPos:: db
 wDexPrevOffset:: db
 
 wOptionsMenuValueCoord:: dw
-wOptionsMenuCursor:: db
-wOptionsMenuScrollPosition:: db
+wOptionsMenuDescriptionAddr:: dw
+wOptionsMenuDescriptionState:: db
+wOptionsMenuLastSelection:: db
+wOptionsMenuIsInitial:: db
 
-	ds 28 ; unused
+	ds 25 ; unused
 
 wOverworldMapAnchor:: dw
 wMetatileStandingY:: db
@@ -1090,7 +1090,9 @@ wEnteredMapFromContinue:: db
 
 wTimeOfDayPal:: db
 
-	ds 4 ; unused
+wFollowInSync:: db
+
+	ds 3 ; unused
 
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
@@ -1184,7 +1186,9 @@ wHallOfFameCount:: dw
 wTradeFlags:: flag_array PARTY_LENGTH
 
 wMooMooBerries:: db
-wUndergroundSwitchPositions:: db
+
+	ds 1 ; unused
+
 wFarfetchdPosition:: db
 
 ; map triggers
@@ -1270,7 +1274,7 @@ wTeamRocketBaseB2FSceneID:: db
 wTeamRocketBaseB3FSceneID:: db
 wTinTower1FSceneID:: db
 wTradeCenterSceneID:: db
-wUndergroundPathSwitchRoomEntrancesSceneID:: db
+wGoldenrodUndergroundSwitchRoomSceneID:: db
 wVermilionCitySceneID:: db
 wVermilionPortSceneID:: db
 wVictoryRoad2FSceneID:: db
@@ -1332,7 +1336,11 @@ wOvercastRandomMaps::
 	overcast_random_map Kanto1
 	overcast_random_map Kanto2
 
-	ds 50 ; unused
+wNeededMonPalLight:: db ; for SPRITE_MON_ICON two-nybble palettes, stores the light color palette index
+wNeededPalType:: db ; 0 = normal palette, non-zero = mon two-nybble palette
+wLoadedObjPalType:: db ; bitmask: bit N set = slot N is a mon palette, clear = normal palette
+
+	ds 47 ; unused
 
 wCandyAmounts::
 	table_width 1
@@ -1928,6 +1936,8 @@ wAbilityTiles:: ds 22 tiles
 ; + 1 to include the "'s"
 wAbilityPkmn:: ds MON_NAME_LENGTH + 1
 wAbilityName:: ds 20
+wAbilityFlags:: db
+wAbilityDisplaySpeed:: db ; (Characters - 1) per DelayFrame
 NEXTU
 wWeatherScratch:: ds SCREEN_HEIGHT_PX
 ENDU

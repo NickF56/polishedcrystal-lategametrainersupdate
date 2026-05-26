@@ -29,11 +29,20 @@ ENDM
 	special_bg_pal map,      DRAGON_SHRINE,               PAL_SINGLE,    DragonShrinePalette
 	special_bg_pal overcast, ECRUTEAK_CITY,               PAL_TIMEOFDAY, VioletEcruteakPalette_Overcast
 	special_bg_pal map,      ECRUTEAK_CITY,               PAL_TIMEOFDAY, VioletEcruteakPalette
+	special_bg_pal map,      VIOLET_GYM,                  PAL_SINGLE,    VioletGymPalette
+	special_bg_pal map,      ECRUTEAK_GYM,                PAL_SINGLE,    EcruteakGymPalette
+	special_bg_pal map,      MAHOGANY_GYM,                PAL_SINGLE,    MahoganyGymPalette
 	special_bg_pal map,      BLACKTHORN_GYM_1F,           PAL_SINGLE,    BlackthornGym1FPalette
 	special_bg_pal map,      BLACKTHORN_GYM_2F,           PAL_SINGLE,    BlackthornGym1FPalette
 	special_bg_pal map,      CINNABAR_LAB,                PAL_SINGLE,    CinnabarLabPalette
 	special_bg_pal map,      PEWTER_GYM,                  PAL_SINGLE,    PewterGymPalette
 	special_bg_pal map,      CERULEAN_GYM,                PAL_SINGLE,    CeruleanGymPalette
+	special_bg_pal map,      VERMILION_GYM,               PAL_SINGLE,    VermilionGymPalette
+	special_bg_pal map,      CELADON_GYM,                 PAL_SINGLE,    CeladonGymPalette
+	special_bg_pal map,      FUCHSIA_GYM,                 PAL_SINGLE,    FuchsiaGymPalette
+	special_bg_pal map,      SAFFRON_GYM,                 PAL_SINGLE,    SaffronGymPalette
+	special_bg_pal map,      VIRIDIAN_GYM,                PAL_SINGLE,    ViridianGymPalette
+	special_bg_pal map,      FIGHTING_DOJO,               PAL_SINGLE,    FightingDojoPalette
 	special_bg_pal overcast, VIOLET_CITY,                 PAL_TIMEOFDAY, VioletEcruteakPalette_Overcast
 	special_bg_pal map,      VIOLET_CITY,                 PAL_TIMEOFDAY, VioletEcruteakPalette
 	special_bg_pal map,      MURKY_SWAMP,                 PAL_SINGLE,    MurkySwampPalette
@@ -53,7 +62,6 @@ ENDM
 	special_bg_pal map,      HALL_OF_FAME,                PAL_SINGLE,    LancesRoomPalette
 	special_bg_pal overcast, BELLCHIME_TRAIL,             PAL_TIMEOFDAY, BellchimeTrailPalette_Overcast
 	special_bg_pal map,      BELLCHIME_TRAIL,             PAL_TIMEOFDAY, BellchimeTrailPalette
-	special_bg_pal map,      FUCHSIA_GYM,                 PAL_SINGLE,    FuchsiaGymPalette
 	special_bg_pal map,      HAUNTED_RADIO_TOWER_2F,      PAL_SINGLE,    HauntedRadioTowerPalette
 	special_bg_pal map,      HAUNTED_RADIO_TOWER_3F,      PAL_SINGLE,    HauntedRadioTowerPalette
 	special_bg_pal map,      HAUNTED_RADIO_TOWER_4F,      PAL_SINGLE,    HauntedPokemonTowerPalette
@@ -66,8 +74,6 @@ ENDM
 	special_bg_pal overcast, CELADON_MANSION_ROOF,        PAL_TIMEOFDAY, CeladonMansionRoofPalette_Overcast
 	special_bg_pal map,      CELADON_MANSION_ROOF,        PAL_TIMEOFDAY, CeladonMansionRoofPalette
 	special_bg_pal map,      CELADON_HOME_DECOR_STORE_4F, PAL_SINGLE,    CeladonHomeDecorStore4FPalette
-	special_bg_pal map,      VIRIDIAN_GYM,                PAL_SINGLE,    ViridianGymPalette
-	special_bg_pal map,      SAFFRON_GYM,                 PAL_SINGLE,    SaffronGymPalette
 	special_bg_pal map,      LIGHTNING_ISLAND,            PAL_SINGLE,    LightningIslandPalette
 	special_bg_pal map,      IVYS_LAB,                    PAL_SINGLE,    IvysLabPalette
 	special_bg_pal overcast, RUGGED_ROAD_NORTH,           PAL_TIMEOFDAY, RuggedRoadNorthPalette_Overcast
@@ -77,6 +83,7 @@ ENDM
 	special_bg_pal map,      SINJOH_RUINS,                PAL_TIMEOFDAY, SinjohRuinsPalette
 	special_bg_pal map,      MYSTRI_STAGE,                PAL_SINGLE,    MystriStagePalette
 	special_bg_pal map,      EMBEDDED_TOWER,              PAL_SINGLE,    EmbeddedTowerPalette
+	special_bg_pal landmark, SPROUT_TOWER,                PAL_SINGLE,    SproutTowerPalette
 	special_bg_pal landmark, WHIRL_ISLANDS,               PAL_SINGLE,    WhirlIslandsPalette
 	special_bg_pal landmark, MT_MORTAR,                   PAL_SINGLE,    DarkCavePalette
 	special_bg_pal landmark, DARK_CAVE,                   PAL_SINGLE,    DarkCavePalette
@@ -91,6 +98,7 @@ ENDM
 	special_bg_pal tileset,  TILESET_POKECOM_CENTER,      PAL_SINGLE,    PokeComPalette
 	special_bg_pal tileset,  TILESET_MART,                PAL_SPECIAL,   MartSpecialCase ; *
 	special_bg_pal tileset,  TILESET_GATE,                PAL_SINGLE,    GatePalette
+	special_bg_pal tileset,  TILESET_PORT,                PAL_TIMEOFDAY, PortPalette
 	special_bg_pal tileset,  TILESET_GAME_CORNER,         PAL_SINGLE,    GameCornerPalette
 	special_bg_pal tileset,  TILESET_HOTEL,               PAL_SINGLE,    HotelPalette
 	special_bg_pal tileset,  TILESET_BATTLE_TOWER_INSIDE, PAL_SINGLE,    BattleTowerPalette
@@ -98,9 +106,9 @@ ENDM
 	special_bg_pal tileset,  TILESET_RADIO_TOWER,         PAL_SINGLE,    RadioTowerPalette
 	special_bg_pal tileset,  TILESET_QUIET_CAVE,          PAL_SINGLE,    QuietCavePalette
 	special_bg_pal tileset,  TILESET_ICE_PATH,            PAL_SINGLE,    IcePathPalette
+	special_bg_pal tileset,  TILESET_HIDEOUT,             PAL_SINGLE,    HideoutPalette
 	special_bg_pal tileset,  TILESET_SAFARI_ZONE,         PAL_TIMEOFDAY, SafariZonePalette
-	special_bg_pal tileset,  TILESET_RUINS_OF_ALPH,       PAL_SINGLE,    RuinsPalette
-	special_bg_pal tileset,  TILESET_ALPH_WORD_ROOM,      PAL_SINGLE,    RuinsPalette
+	special_bg_pal tileset,  TILESET_RUINS_OF_ALPH,       PAL_SINGLE,    RuinsOfAlphPalette
 	special_bg_pal tileset,  TILESET_SNOWTOP_MOUNTAIN,    PAL_TIMEOFDAY, SnowtopMountainPalette
 	special_bg_pal tileset,  TILESET_HIDDEN_GROTTO,       PAL_SPECIAL,   HiddenGrottoSpecialCase ; *
 	special_bg_pal overcast, (unused),                    PAL_TIMEOFDAY, OvercastBGPalette
@@ -196,10 +204,63 @@ endr
 	RGB_MONOCHROME_BLACK
 endc
 
+HideoutPalette:
+if !DEF(MONOCHROME)
+INCLUDE "gfx/tilesets/hideout.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
 GatePalette:
 if !DEF(MONOCHROME)
 INCLUDE "gfx/tilesets/gate.pal"
 else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
+PortPalette:
+if !DEF(MONOCHROME)
+INCLUDE "gfx/tilesets/port.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+rept 4
+	MONOCHROME_RGB_FOUR_NIGHT
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+	MONOCHROME_RGB_FOUR_NIGHT
+	MONOCHROME_RGB_FOUR_NIGHT
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
 rept 7
 	MONOCHROME_RGB_FOUR
 endr
@@ -241,7 +302,7 @@ endr
 	RGB_MONOCHROME_BLACK
 endc
 
-RuinsPalette:
+RuinsOfAlphPalette:
 if !DEF(MONOCHROME)
 INCLUDE "gfx/tilesets/ruins_of_alph.pal"
 else
@@ -639,6 +700,25 @@ endr
 	RGB_MONOCHROME_BLACK
 endc
 
+FightingDojoPalette:
+if !DEF(MONOCHROME)
+INCLUDE "maps/FightingDojo.pal"
+else
+rept 4
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_LIGHT
+	RGB_MONOCHROME_LIGHT
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_BLACK
+	MONOCHROME_RGB_FOUR
+	MONOCHROME_RGB_FOUR
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
 ViridianGymPalette:
 if !DEF(MONOCHROME)
 INCLUDE "maps/ViridianGym.pal"
@@ -682,9 +762,23 @@ endr
 	RGB_MONOCHROME_BLACK
 endc
 
+VermilionGymPalette:
 GameCornerPalette:
 if !DEF(MONOCHROME)
 INCLUDE "gfx/tilesets/game_corner.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
+CeladonGymPalette:
+if !DEF(MONOCHROME)
+INCLUDE "maps/CeladonGym.pal"
 else
 rept 7
 	MONOCHROME_RGB_FOUR
@@ -805,6 +899,19 @@ endr
 	RGB_MONOCHROME_BLACK
 	MONOCHROME_RGB_FOUR_NIGHT
 	MONOCHROME_RGB_FOUR_NIGHT
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
+SproutTowerPalette:
+if !DEF(MONOCHROME)
+INCLUDE "gfx/tilesets/sprout_tower.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
 	RGB_MONOCHROME_WHITE
 	RGB_MONOCHROME_WHITE
 	RGB_MONOCHROME_DARK
@@ -1090,6 +1197,45 @@ endr
 	RGB_MONOCHROME_BLACK
 	MONOCHROME_RGB_FOUR_NIGHT
 	MONOCHROME_RGB_FOUR_NIGHT
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
+VioletGymPalette:
+if !DEF(MONOCHROME)
+INCLUDE "maps/VioletGym.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
+EcruteakGymPalette:
+if !DEF(MONOCHROME)
+INCLUDE "maps/EcruteakGym.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR_NIGHT
+endr
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_WHITE
+	RGB_MONOCHROME_DARK
+	RGB_MONOCHROME_BLACK
+endc
+
+MahoganyGymPalette:
+if !DEF(MONOCHROME)
+INCLUDE "maps/MahoganyGym.pal"
+else
+rept 7
+	MONOCHROME_RGB_FOUR
+endr
 	RGB_MONOCHROME_WHITE
 	RGB_MONOCHROME_WHITE
 	RGB_MONOCHROME_DARK

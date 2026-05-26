@@ -34,7 +34,7 @@ TeamRocketBaseB3F_MapScriptHeader:
 	def_object_events
 	object_event 25, 14, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, LanceGetPasswordScript, EVENT_TEAM_ROCKET_BASE_B3F_LANCE_PASSWORDS
 	object_event  8,  3, SPRITE_PETREL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B3F_PETREL
-	object_event  7,  2, SPRITE_MON_ICON, SPRITEMOVEDATA_POKEMON, 0, MURKROW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, NO_FORM, RocketBaseMurkrow, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event  7,  2, SPRITE_MON_ICON, SPRITEMOVEDATA_POKEMON, 0, MURKROW, -1, PAL_MON_BLUE, OBJECTTYPE_SCRIPT, NO_FORM, RocketBaseMurkrow, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  4,  5, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_TEAM_ROCKET_BASE
 	object_event 21,  7, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, 0, OBJECTTYPE_TRAINER, 0, SlowpokeTailGrunt, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  5, 14, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, 0, OBJECTTYPE_TRAINER, 3, RaticateTailGrunt, EVENT_TEAM_ROCKET_BASE_POPULATION
@@ -63,7 +63,7 @@ TeamRocketBaseB3FCheckGiovanniDoor:
 	endcallback
 
 .OpenSesame:
-	changeblock 10, 8, $7
+	changeblock 10, 8, $0d
 	endcallback
 
 LanceGetPasswordScript:
@@ -186,13 +186,19 @@ BossDoor:
 	sjumpfwd .OpenSesame
 
 .NeedsPassword:
-	jumpopenedtext TeamRocketBaseB3FLockedDoorNeedsPasswordText
+	jumpthisopenedtext
+
+	text "The door's closed…"
+
+	para "It needs two"
+	line "passwords to open."
+	done
 
 .OpenSesame:
 	writetext TeamRocketBaseB3FLockedDoorOpenSesameText
 	waitbutton
 	playsound SFX_ENTER_DOOR
-	changeblock 10, 8, $7
+	changeblock 10, 8, $0d
 	refreshmap
 	closetext
 	setevent EVENT_OPENED_DOOR_TO_GIOVANNIS_OFFICE
@@ -495,12 +501,6 @@ RocketScientistMitchBeatenText:
 	cont "battling."
 	done
 
-TeamRocketBaseB3FLockedDoorNeedsPasswordText:
-	text "The door's closed…"
-
-	para "It needs two"
-	line "passwords to open."
-	done
 
 TeamRocketBaseB3FLockedDoorOpenSesameText:
 	text "The door's closed…"

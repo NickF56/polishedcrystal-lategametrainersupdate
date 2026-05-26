@@ -222,7 +222,7 @@ ENDM
 	connection east, FuchsiaCity, FUCHSIA_CITY, -7
 
 	map_attributes Route18West, ROUTE_18_WEST, $43, NORTH | WEST | EAST
-	connection north, Route17, ROUTE_17, 0
+	connection north, Route17South, ROUTE_17_SOUTH, 0
 	connection west, UragaChannelEast, URAGA_CHANNEL_EAST, 0
 	connection east, Route18East, ROUTE_18_EAST, 0
 
@@ -234,27 +234,25 @@ ENDM
 	connection west, Route21, ROUTE_21, -19
 	connection east, UragaChannelEast, URAGA_CHANNEL_EAST, 0
 
-	map_attributes Route17, ROUTE_17, $43, NORTH | SOUTH
-	connection north, Route16South, ROUTE_16_SOUTH, -3
+	map_attributes Route17South, ROUTE_17_SOUTH, $43, NORTH | SOUTH
+	connection north, Route17North, ROUTE_17_NORTH, -3
 	connection south, Route18West, ROUTE_18_WEST, 0
 
-	map_attributes Route16South, ROUTE_16_SOUTH, $f, SOUTH
-	connection south, Route17, ROUTE_17, 3
+	map_attributes Route17North, ROUTE_17_NORTH, $f, SOUTH
+	connection south, Route17South, ROUTE_17_SOUTH, 3
 
-	map_attributes Route16Northeast, ROUTE_16_NORTHEAST, $f, WEST | EAST
-	connection west, Route16West, ROUTE_16_WEST, -1
-	connection east, CeladonCity, CELADON_CITY, -10
+	map_attributes Route16East, ROUTE_16_EAST, $f, EAST
+	connection east, CeladonCity, CELADON_CITY, -9
 
-	map_attributes Route16Northwest, ROUTE_16_NORTHWEST, $f, WEST | EAST
-	connection west, Route16West, ROUTE_16_WEST, -1
-	connection east, CeladonCity, CELADON_CITY, -10
+	map_attributes Route16North, ROUTE_16_NORTH, $f, WEST
+	connection west, Route16West, ROUTE_16_WEST, 0
 
 	map_attributes Route16West, ROUTE_16_WEST, $f, WEST | EAST
 	connection west, Route2South, ROUTE_2_SOUTH, -7
-	connection east, Route16Northwest, ROUTE_16_NORTHWEST, 1
+	connection east, Route16North, ROUTE_16_NORTH, 0
 
 	map_attributes CeladonCity, CELADON_CITY, $f, WEST | EAST
-	connection west, Route16Northeast, ROUTE_16_NORTHEAST, 10
+	connection west, Route16East, ROUTE_16_EAST, 9
 	connection east, Route7, ROUTE_7, 5
 
 	map_attributes Route7, ROUTE_7, $f, WEST | EAST
@@ -386,7 +384,7 @@ ENDM
 	DEF FAKE_ROUTE_36_HEIGHT EQU ROUTE_36_HEIGHT - 1
 	connection north, FakeRoute36, FAKE_ROUTE_36, -20
 	PURGE GROUP_FAKE_ROUTE_36, MAP_FAKE_ROUTE_36, FAKE_ROUTE_36_WIDTH, FAKE_ROUTE_36_HEIGHT
-	connection east, Route32, ROUTE_32, 12
+	connection east, Route32, ROUTE_32, 10
 
 	map_attributes GoldenrodHarbor, GOLDENROD_HARBOR, $35, NORTH | WEST
 	connection north, Route35CoastSouth, ROUTE_35_COAST_SOUTH, 0
@@ -499,10 +497,11 @@ ENDM
 	map_attributes IlexForest, ILEX_FOREST, $35, 0
 	map_attributes MurkySwamp, MURKY_SWAMP, $35, 0
 	map_attributes MagnetTunnelInside, MAGNET_TUNNEL_INSIDE, $9, 0
-	map_attributes WarehouseEntrance, WAREHOUSE_ENTRANCE, $0, 0
-	map_attributes UndergroundPathSwitchRoomEntrances, UNDERGROUND_PATH_SWITCH_ROOM_ENTRANCES, $0, 0
+	map_attributes GoldenrodUnderground, GOLDENROD_UNDERGROUND, $0, 0
+	map_attributes GoldenrodUndergroundSwitchRoom, GOLDENROD_UNDERGROUND_SWITCH_ROOM, $0, 0
+	map_attributes GoldenrodUndergroundEntrances, GOLDENROD_UNDERGROUND_ENTRANCES, $0, 0
 	map_attributes GoldenrodDeptStoreB1F, GOLDENROD_DEPT_STORE_B1F, $0, 0
-	map_attributes UndergroundWarehouse, UNDERGROUND_WAREHOUSE, $0, 0
+	map_attributes GoldenrodUndergroundWarehouse, GOLDENROD_UNDERGROUND_WAREHOUSE, $0, 0
 	map_attributes MountMortar1FOutside, MOUNT_MORTAR_1F_OUTSIDE, $9, 0
 	map_attributes MountMortar1FInside, MOUNT_MORTAR_1F_INSIDE, $9, 0
 	map_attributes MountMortar2FInside, MOUNT_MORTAR_2F_INSIDE, $9, 0
@@ -549,7 +548,7 @@ ENDM
 	map_attributes MountMoon1F, MOUNT_MOON_1F, $9, 0
 	map_attributes MountMoonB1F, MOUNT_MOON_B1F, $9, 0
 	map_attributes MountMoonB2F, MOUNT_MOON_B2F, $9, 0
-	map_attributes Underground, UNDERGROUND, $0, 0
+	map_attributes UndergroundPath, UNDERGROUND_PATH, $0, 0
 	map_attributes RockTunnel1F, ROCK_TUNNEL_1F, $9, 0
 	map_attributes RockTunnelB1F, ROCK_TUNNEL_B1F, $9, 0
 	map_attributes RockTunnel2F, ROCK_TUNNEL_2F, $9, 0
@@ -607,7 +606,7 @@ ENDM
 	map_attributes LakeOfRageMagikarpHouse, LAKE_OF_RAGE_MAGIKARP_HOUSE, $0, 0
 	map_attributes Route43MahoganyGate, ROUTE_43_MAHOGANY_GATE, $0, 0
 	map_attributes Route43Gate, ROUTE_43_GATE, $0, 0
-	map_attributes SinjohRuins, SINJOH_RUINS, $d5, 0
+	map_attributes SinjohRuins, SINJOH_RUINS, $8c, 0
 	map_attributes SinjohRuinsHouse, SINJOH_RUINS_HOUSE, $0, 0
 	map_attributes MystriStage, MYSTRI_STAGE, $0, 0
 	map_attributes EmbeddedTower, EMBEDDED_TOWER, $0, 0
@@ -662,7 +661,7 @@ ENDM
 	map_attributes VermilionHouseDiglettsCaveSpeechHouse, VERMILION_HOUSE_DIGLETTS_CAVE_SPEECH_HOUSE, $0, 0
 	map_attributes VermilionGym, VERMILION_GYM, $0, 0
 	map_attributes Route6SaffronGate, ROUTE_6_SAFFRON_GATE, $0, 0
-	map_attributes Route6UndergroundEntrance, ROUTE_6_UNDERGROUND_ENTRANCE, $0, 0
+	map_attributes Route6UndergroundPathEntrance, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, $0, 0
 	map_attributes Route11Gate, ROUTE_11_GATE, $0, 0
 	map_attributes Route11Gate2F, ROUTE_11_GATE_2F, $0, 0
 	map_attributes VermilionPollutionSpeechHouse, VERMILION_POLLUTION_SPEECH_HOUSE, $0, 0
@@ -843,7 +842,7 @@ ENDM
 	map_attributes SilphCo3F, SILPH_CO_3F, $0, 0
 	map_attributes CopycatsHouse1F, COPYCATS_HOUSE_1F, $0, 0
 	map_attributes CopycatsHouse2F, COPYCATS_HOUSE_2F, $0, 0
-	map_attributes Route5UndergroundEntrance, ROUTE_5_UNDERGROUND_ENTRANCE, $0, 0
+	map_attributes Route5UndergroundPathEntrance, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, $0, 0
 	map_attributes Route5SaffronCityGate, ROUTE_5_SAFFRON_CITY_GATE, $0, 0
 	map_attributes Route5CleanseTagSpeechHouse, ROUTE_5_CLEANSE_TAG_SPEECH_HOUSE, $0, 0
 	map_attributes PokemonTrainerFanClub, POKEMON_TRAINER_FAN_CLUB, $0, 0
@@ -859,7 +858,7 @@ ENDM
 	map_attributes Route30BerrySpeechHouse, ROUTE_30_BERRY_SPEECH_HOUSE, $0, 0
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $0, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $0, 0
-	map_attributes BellchimeTrail, BELLCHIME_TRAIL, $5, 0
+	map_attributes BellchimeTrail, BELLCHIME_TRAIL, $0, 0
 	map_attributes PewterMuseumOfScience1F, PEWTER_MUSEUM_OF_SCIENCE_1F, $0, 0
 	map_attributes PewterMuseumOfScience2F, PEWTER_MUSEUM_OF_SCIENCE_2F, $0, 0
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $45, 0

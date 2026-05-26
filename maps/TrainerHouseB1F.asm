@@ -123,6 +123,8 @@ TrainerHouseReceptionistScript:
 	ld [wOtherTrainerClass], a
 	ld a, [hl]
 	ld [wOtherTrainerID], a
+	xor a ; TRAINERPAL_NONE
+	ld [wTrainerPal], a
 	ret
 
 Movement_EnterTrainerHouseBattleRoom:

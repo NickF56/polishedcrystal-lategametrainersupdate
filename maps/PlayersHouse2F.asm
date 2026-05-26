@@ -202,6 +202,7 @@ endr
 	setflag ENGINE_FLYPOINT_BLACKTHORN
 	setflag ENGINE_FLYPOINT_SILVER_CAVE
 	setflag ENGINE_FLYPOINT_INDIGO_PLATEAU
+	setflag ENGINE_FLYPOINT_POKEMON_LEAGUE
 	setflag ENGINE_FLYPOINT_PALLET
 	setflag ENGINE_FLYPOINT_VIRIDIAN
 	setflag ENGINE_FLYPOINT_PEWTER
@@ -257,6 +258,12 @@ endr
 	loadmem wPartyMon6Exp+0, 207967 >> 16
 	loadmem wPartyMon6Exp+1, HIGH(207967)
 	loadmem wPartyMon6Exp+2, LOW(207967)
+	; max modern evs
+	loadmem wPartyMon6HPEV, MODERN_MAX_EV
+	loadmem wPartyMon6AtkEV, MODERN_MAX_EV
+	loadmem wPartyMon6SpeEV, MODERN_EV_LIMIT - MODERN_MAX_EV * 2
+	; hyper training
+	loadmem wPartyMon6HyperTraining, %01000000
 	; fill pokedex
 	callasm FillPokedex
 ;	; new bark events
@@ -294,9 +301,7 @@ endr
 	setevent EVENT_BEAT_PICNICKER_KIM
 	setevent EVENT_BEAT_BREEDER_THERESA
 	; ecruteak events
-	setevent EVENT_RIVAL_BURNED_TOWER
-	setevent EVENT_HOLE_IN_BURNED_TOWER
-	setmapscene BURNED_TOWER_1F, SCENE_BURNEDTOWER1F_NOOP
+	setmapscene BURNED_TOWER_1F, SCENE_BURNEDTOWER1F_FIREBREATHER_DICK
 	; olivine events
 	setevent EVENT_RIVAL_OLIVINE_CITY
 	setmapscene OLIVINE_CITY, SCENE_OLIVINECITY_NOOP
@@ -374,8 +379,7 @@ PokemonJournalProfElmScript:
 PlayersHousePC:
 	opentext
 	special Special_PlayersHousePC
-	iftruefwd .Warp
-	endtext
+	iffalse_endtext
 .Warp:
 	warp NONE, 0, 0
 	end

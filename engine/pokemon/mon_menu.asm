@@ -131,7 +131,7 @@ SwitchPartyMons:
 	cp 2
 	jr c, .DontSwitch
 
-	ld a, 4
+	ld a, PARTYMENUACTION_MOVE
 	ld [wPartyMenuActionText], a
 
 	farcall InitPartySwap
@@ -147,7 +147,7 @@ SwitchPartyMons:
 
 	farcall _SwitchPartyMons
 
-	xor a
+	xor a ; PARTYMENUACTION_CHOOSE_POKEMON
 	ld [wPartyMenuActionText], a
 
 	farcall LoadPartyMenuGFX
@@ -159,7 +159,7 @@ SwitchPartyMons:
 	ret
 
 .DontSwitch:
-	xor a
+	xor a ; PARTYMENUACTION_CHOOSE_POKEMON
 	ld [wPartyMenuActionText], a
 	jmp CancelPokemonAction
 
@@ -381,7 +381,7 @@ SwapPartyItem:
 	ld [wSwitchMon], a
 	farcall HoldSwitchmonIcon
 	farcall InitPartyMenuNoCancel
-	ld a, 4
+	ld a, PARTYMENUACTION_MOVE
 	ld [wPartyMenuActionText], a
 	farcall WritePartyMenuTilemap
 	farcall PlacePartyMenuText
@@ -454,12 +454,8 @@ SwapPartyItem:
 	pop hl
 	ld [wCurPartySpecies], a ; load pkmn2 species
 	call UpdateMewtwoForm
-	xor a
-	ld [wPartyMenuActionText], a
-	jmp CancelPokemonAction
-
 .DontSwap
-	xor a
+	xor a ; PARTYMENUACTION_CHOOSE_POKEMON
 	ld [wPartyMenuActionText], a
 	jmp CancelPokemonAction
 
@@ -755,7 +751,7 @@ _OpenTempmonSummary:
 	call LowVolume
 	ld a, TEMPMON
 	ld [wMonType], a
-	predef SummaryScreenInit
+	farcall SummaryScreenInit
 	; check if the cry is still playing
 	call CheckSFX
 	ld a, MAX_VOLUME
@@ -841,7 +837,7 @@ MonMenu_FreshSnack:
 	call PrintText
 
 .finish
-	xor a
+	xor a ; PARTYMENUACTION_CHOOSE_POKEMON
 	ld [wPartyMenuActionText], a
 	ld a, $3
 	ret
@@ -1404,7 +1400,7 @@ GetForgottenMoves::
 	and SPECIESFORM_MASK
 	ld b, a
 	; bc = index
-	predef GetEvosAttacksPointer
+	farcall GetEvosAttacksPointer
 .skip_evos
 	ld a, BANK(EvosAttacks)
 	call GetFarByte
@@ -1530,7 +1526,7 @@ MoveScreen_ListMoves:
 	ld a, SCREEN_WIDTH * 2 ; move list spacing
 	ld [wListMovesLineSpacing], a
 	hlcoord 2, 3
-	predef ListMoves
+	farcall ListMoves
 
 	; Get PP -- either current PP, or default PP for the move
 	ld a, [wMoveScreenMode]
@@ -1584,7 +1580,7 @@ MoveScreen_ListMoves:
 .got_pp
 	; Now we have things set up correctly
 	hlcoord 10, 4
-	predef ListMovePP
+	farcall ListMovePP
 	hlcoord 1, 12, wAttrmap
 	ld bc, 6
 	xor a
@@ -1733,7 +1729,7 @@ MoveScreen_ListMovesFast:
 
 .description
 	hlcoord 1, 14
-	predef PrintMoveDesc
+	farcall PrintMoveDesc
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret

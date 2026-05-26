@@ -362,8 +362,8 @@ PicnickerTiffany1Script:
 	opentext
 	checkflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	iftruefwd .WantsBattle
-	checkflag ENGINE_TIFFANY_HAS_PINK_BOW
-	iftruefwd .HasPinkBow
+	checkflag ENGINE_TIFFANY_HAS_FAIRYFEATHER
+	iftruefwd .HasFairyFeather
 	checkcellnum PHONE_PICNICKER_TIFFANY
 	iftruefwd .NumberAccepted
 	checkpoke CLEFAIRY
@@ -434,19 +434,24 @@ PicnickerTiffany1Script:
 	clearflag ENGINE_TIFFANY_READY_FOR_REMATCH
 	end
 
-.HasPinkBow:
+.HasFairyFeather:
 	scall .Gift
-	verbosegiveitem PINK_BOW
+	verbosegiveitem FAIRYFEATHER
 	iffalsefwd .NoRoom
-	clearflag ENGINE_TIFFANY_HAS_PINK_BOW
-	setevent EVENT_TIFFANY_GAVE_PINK_BOW
+	clearflag ENGINE_TIFFANY_HAS_FAIRYFEATHER
+	setevent EVENT_TIFFANY_GAVE_FAIRYFEATHER
 	sjumpfwd .NumberAccepted
 
 .NoRoom:
 	sjumpfwd .PackFull
 
 .NoClefairy:
-	jumpopenedtext PicnickerTiffanyClefairyText
+	jumpthisopenedtext
+
+	text "Isn't my Clefairy"
+	line "just the most"
+	cont "adorable thing?"
+	done
 
 .AskNumber1:
 	jumpstd asknumber1f
@@ -568,11 +573,6 @@ PicnickerTiffanyWantsPicnicText:
 	para "Won't you join us?"
 	done
 
-PicnickerTiffanyClefairyText:
-	text "Isn't my Clefairy"
-	line "just the most"
-	cont "adorable thing?"
-	done
 
 BreederJodySeenText:
 	text "I bred my #mon"

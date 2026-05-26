@@ -108,6 +108,7 @@
 	const HONEY_GATHER
 	const FRISK
 	const RECKLESS
+	const BAD_DREAMS
 	const PICKPOCKET
 	const SHEER_FORCE
 	const CONTRARY
@@ -155,8 +156,10 @@
 	const NEUTRALIZING_GAS
 	const PASTEL_VEIL
 	const QUICK_DRAW
+	const WIND_RIDER
 	const CUD_CHEW
 	const SHARPNESS
 	const ARMOR_TAIL
 	const MINDS_EYE
+	const MEGA_SOL
 DEF NUM_ABILITIES EQU const_value

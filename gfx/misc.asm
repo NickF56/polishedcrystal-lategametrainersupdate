@@ -5,6 +5,7 @@ VioletRoofGFX::    INCBIN "gfx/tilesets/roofs/violet.2bpp.lzp"
 AzaleaRoofGFX::    INCBIN "gfx/tilesets/roofs/azalea.2bpp.lzp"
 OlivineRoofGFX::   INCBIN "gfx/tilesets/roofs/olivine.2bpp.lzp"
 GoldenrodRoofGFX:: INCBIN "gfx/tilesets/roofs/goldenrod.2bpp.lzp"
+SinjohRoofGFX::    INCBIN "gfx/tilesets/roofs/sinjoh.2bpp.lzp"
 
 
 SECTION "Map Name Sign Graphics", ROMX
@@ -38,9 +39,11 @@ SECTION "Fishing Graphics", ROMX
 ChrisFishingGFX::     INCBIN "gfx/overworld/chris_fish.2bpp"
 KrisFishingGFX::      INCBIN "gfx/overworld/kris_fish.2bpp"
 CrysFishingGFX::      INCBIN "gfx/overworld/crys_fish.2bpp"
+BetaFishingGFX::      INCBIN "gfx/overworld/beta_fish.2bpp"
 ChrisSurfFishingGFX:: INCBIN "gfx/overworld/chris_surf_fish.2bpp"
 KrisSurfFishingGFX::  INCBIN "gfx/overworld/kris_surf_fish.2bpp"
 CrysSurfFishingGFX::  INCBIN "gfx/overworld/crys_surf_fish.2bpp"
+BetaSurfFishingGFX::  INCBIN "gfx/overworld/beta_surf_fish.2bpp"
 
 
 SECTION "Copyright Graphics", ROMX
@@ -65,6 +68,13 @@ CreditsSequence2GFX:: INCBIN "gfx/credits/sequence2.2bpp.lzp"
 SECTION "Trade Graphics", ROMX
 
 TradeScreenGFX:: INCBIN "gfx/trade/trade_screen.2bpp.lzp"
+
+
+SECTION "Evolution Graphics", ROMX
+
+EvoSpotlightGFX:: INCBIN "gfx/evo/spotlight.2bpp.lzp"
+EvoBubbleGFX::    INCBIN "gfx/evo/bubble.2bpp"
+EggHatchGFX::     INCBIN "gfx/evo/egg_hatch.2bpp"
 
 
 SECTION "Stats Graphics", ROMX
@@ -99,13 +109,12 @@ PackX2GFX:: INCBIN "gfx/pack/pack_x2.2bpp.lzp"
 PackX3GFX:: INCBIN "gfx/pack/pack_x3.2bpp.lzp"
 PackX4GFX:: INCBIN "gfx/pack/pack_x4.2bpp.lzp"
 PackX5GFX:: INCBIN "gfx/pack/pack_x5.2bpp.lzp"
-
-
-SECTION "Trainer Card Pics", ROMX
-
-ChrisCardPic:: INCBIN "gfx/trainer_card/chris_card.2bpp.lzp"
-KrisCardPic::  INCBIN "gfx/trainer_card/kris_card.2bpp.lzp"
-CrysCardPic::  INCBIN "gfx/trainer_card/crys_card.2bpp.lzp"
+PackB0GFX:: INCBIN "gfx/pack/pack_b0.2bpp.lzp"
+PackB1GFX:: INCBIN "gfx/pack/pack_b1.2bpp.lzp"
+PackB2GFX:: INCBIN "gfx/pack/pack_b2.2bpp.lzp"
+PackB3GFX:: INCBIN "gfx/pack/pack_b3.2bpp.lzp"
+PackB4GFX:: INCBIN "gfx/pack/pack_b4.2bpp.lzp"
+PackB5GFX:: INCBIN "gfx/pack/pack_b5.2bpp.lzp"
 
 
 SECTION "Trainer Backpics", ROMX
@@ -113,6 +122,7 @@ SECTION "Trainer Backpics", ROMX
 ChrisBackpic:: INCBIN "gfx/player/chris_back.2bpp.lzp"
 KrisBackpic::  INCBIN "gfx/player/kris_back.2bpp.lzp"
 CrysBackpic::  INCBIN "gfx/player/crys_back.2bpp.lzp"
+BetaBackpic::  INCBIN "gfx/player/beta_back.2bpp.lzp"
 LyraBackpic::  INCBIN "gfx/battle/lyra_back.2bpp.lzp"
 
 
@@ -298,5 +308,5 @@ DexTilemap_Orange::      INCBIN "gfx/pokedex/orange.bin.lzp"
 
 SECTION "SGB Border Graphics", ROMX
 
-SGBBorderGFX::
-INCBIN "gfx/sgb/sgb_border.4bpp.lzp"
+SGBBorderGFX:: INCBIN "gfx/sgb/sgb_border.4bpp.lzp"
+SGBBorderMap:: INCBIN "gfx/sgb/sgb_border.bin.lzp"

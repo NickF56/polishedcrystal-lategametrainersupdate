@@ -172,7 +172,7 @@ CheckPokeItem::
 	jr c, .close_sram_return
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
-	predef RemoveMonFromParty
+	farcall RemoveMonFromParty
 	ld a, TRUE ; right mail
 
 .close_sram_return
@@ -448,7 +448,7 @@ MailboxPC:
 
 .AttachMail:
 	call FadeToMenu
-	xor a
+	xor a ; PARTYMENUACTION_CHOOSE_POKEMON
 	ld [wPartyMenuActionText], a
 	call ClearBGPalettes
 .try_again

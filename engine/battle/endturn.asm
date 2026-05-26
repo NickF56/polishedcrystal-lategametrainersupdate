@@ -268,7 +268,7 @@ HandleWeather:
 .do_it
 	call HasUserFainted
 	ret z
-	predef GetUserItemAfterUnnerve
+	farcall GetUserItemAfterUnnerve
 	ld a, b
 	cp HELD_SAFETY_GOGGLES
 	jr z, .run_weather_abilities
@@ -325,7 +325,7 @@ HandleWeather:
 	ld hl, SandstormHitsText
 	call StdBattleTextbox
 	call GetSixteenthMaxHP
-	predef_jump SubtractHPFromUser
+	farjp SubtractHPFromUser
 
 .HandleHail
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -364,7 +364,7 @@ endc
 	ld hl, HailHitsText
 	call StdBattleTextbox
 	call GetSixteenthMaxHP
-	predef_jump SubtractHPFromUser
+	farjp SubtractHPFromUser
 
 WeatherEndedMessages:
 	farbank BattleText
@@ -483,7 +483,7 @@ HandleLeftovers:
 
 	; damage instead
 	call GetEighthMaxHP
-	predef SubtractHPFromUser
+	farcall SubtractHPFromUser
 	ld hl, BattleText_UserHurtByItem
 	jr .print
 .leftovers
@@ -529,7 +529,7 @@ HandleLeechSeed:
 
 	call GetEighthMaxHP
 	push bc
-	predef SubtractHPFromUser
+	farcall SubtractHPFromUser
 	ld hl, LeechSeedSapsText
 	call StdBattleTextbox
 	pop bc
@@ -545,7 +545,7 @@ HandleLeechSeed:
 .hurt
 	farcall BeginAbility
 	farcall ShowEnemyAbilityActivation
-	predef SubtractHPFromUser
+	farcall SubtractHPFromUser
 	ld hl, SuckedUpOozeText
 	call StdBattleTextbox
 	farcall EndAbility
@@ -619,7 +619,7 @@ DoPoisonBurnDamage:
 	ld b, h
 	ld c, l
 .did_toxic
-	predef_jump SubtractHPFromUser
+	farjp SubtractHPFromUser
 
 IncrementToxic:
 ; Returns nz if we are badly poisoned, and sets hl to the current toxic counter.
@@ -668,7 +668,7 @@ HandleCurse:
 	ld de, ANIM_UNDER_CURSE
 	farcall PlayBattleAnimDE_OnlyIfVisible
 	call GetQuarterMaxHP
-	predef SubtractHPFromUser
+	farcall SubtractHPFromUser
 	ld hl, HurtByCurseText
 	jmp StdBattleTextbox
 
@@ -714,7 +714,7 @@ HandleWrap:
 	xor a
 	ld [wNumHits], a
 	ld [wFXAnimIDHi], a
-	predef PlayBattleAnim
+	farcall PlayBattleAnim
 	call SwitchTurn
 
 .skip_anim
@@ -727,7 +727,7 @@ HandleWrap:
 .no_binding_band
 	call GetEighthMaxHP
 .subtract_hp
-	predef SubtractHPFromUser
+	farcall SubtractHPFromUser
 	ld hl, BattleText_UsersHurtByStringBuffer1
 
 .print_text
@@ -804,20 +804,28 @@ EndturnEncoreDisable_End:
 	ld l, e
 	jmp StdBattleTextbox
 
-TickDisableAfterMove:
-; If we have 5 turns left of Disable, tick it down. This makes it so that
-; Disable covers 4 move uses.
+TickDisableAndEncoreAfterMove:
+; If we have 5 turns left of Disable or 4 turns left of Encore, tick it down.
+; This makes it so that Disable covers 4 move uses and Encore 3.
 	call HasUserFainted
 	ret z
 	ldh a, [hBattleTurn]
 	and a
 	ld hl, wPlayerDisableCount
-	jr z, .got_disable_count
+	ld de, wPlayerEncoreCount
+	jr z, .got_count
 	ld hl, wEnemyDisableCount
-.got_disable_count
-	ld a, [hl]
+	ld de, wEnemyEncoreCount
+.got_count
+	ld a, 5
+	call .MaybeDecrement
+	ld a, 4
+	ld h, d
+	ld l, e
+
+.MaybeDecrement:
+	sub [hl]
 	and $f
-	cp 5
 	ret nz
 	dec [hl]
 	ret
@@ -868,7 +876,7 @@ HandlePerishSong:
 	ret nz
 
 	call GetMaxHP
-	predef_jump SubtractHPFromUser
+	farjp SubtractHPFromUser
 
 HandleTrickRoom:
 	ld hl, wTrickRoom
@@ -888,7 +896,7 @@ HandleLeppaBerry:
 .do_it
 	call HasUserFainted
 	ret z
-	predef GetUserItemAfterUnnerve
+	farcall GetUserItemAfterUnnerve
 	ld a, b
 	cp HELD_RESTORE_PP
 	ret nz

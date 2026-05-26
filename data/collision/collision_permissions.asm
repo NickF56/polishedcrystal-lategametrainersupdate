@@ -24,7 +24,7 @@ CollisionPermissionTable::
 	db WALL_TILE  ; COLL_HEADBUTT_TREE
 	db LAND_TILE  ; 16
 	db LAND_TILE  ; 17
-	db LAND_TILE  ; COLL_TALL_GRASS
+	db LAND_TILE  ; COLL_VISUAL_GRASS
 	db LAND_TILE  ; 19
 	db LAND_TILE  ; 1a
 	db LAND_TILE  ; 1b
@@ -97,7 +97,7 @@ CollisionPermissionTable::
 	db LAND_TILE  ; 5e
 	db LAND_TILE  ; 5f
 	db LAND_TILE  ; COLL_HOLE
-	db LAND_TILE  ; 61
+	db LAND_TILE  ; COLL_STONE_WARP
 	db LAND_TILE  ; 62
 	db LAND_TILE  ; 63
 	db LAND_TILE  ; 64
